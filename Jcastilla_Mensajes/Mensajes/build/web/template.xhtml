@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>MENSAJES</title>
+    </h:head>
+
+    <h:body>
+        <h:form>
+
+            <div id="top" class="top">
+                <ui:insert name="top">
+                    <p:tabMenu activeIndex="#{param.i}">
+                        <a href="Messagues.xhtml"></a>
+                        <a href="growl.xhtml"></a>
+                        <p:menuitem value="MESSAGES" outcome="Messagues.xhtml" icon="ui-icon-star">
+                            <f:param name="i" value="0" />
+                        </p:menuitem>
+                        <p:menuitem value="GROWL" outcome="growl.xhtml" icon="ui-icon-search">
+                            <f:param name="i" value="1" />
+                        </p:menuitem>
+                    </p:tabMenu>
+                </ui:insert>
+            </div>
+        </h:form>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+
+            </ui:insert>
+        </div>
+
+        <script src="resources/js/jsfcrud.js" type="text/javascript"></script>
+    </h:body>
+
+</html>
