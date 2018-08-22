@@ -13,7 +13,7 @@
 
 
         <ui:define name="content">
-            <p:growl autoUpdate="true"/>
+            <!--<p:growl autoUpdate="true" />-->
             <h:form id="frm">
 
                 <p:commandButton value="Nuevo" oncomplete="PF('dlgHola').show();" actionListener="#{asistenteC.setAccion('Registrar')}" update=":dlgDatos :newform"/>
@@ -53,13 +53,13 @@
             <p:dialog showEffect="explode" modal="true" hideEffect="explode" header="Datos" widgetVar="dlgHola" id="dlgDatos">
                 <h:form id="newform">
                     <p:panelGrid columns="1">
-                        <p:inputText placeholder="NOMBRE" value="#{asistenteC.asistente.nombre}" requiredMessage="INGRESAR NOMBRE" required="true">
+                        <p:inputText placeholder="NOMBRE" value="#{asistenteC.asistente.nombre}" >
                             <p:keyFilter regEx="/[ABCDEFGHIJKLMN ÑOPQRSTUVWXYZ]/i"/>
                         </p:inputText>
-                        <p:inputText placeholder="APELLIDO" value="#{asistenteC.asistente.apellido}" requiredMessage="INGRESAR APELLIDO" required="true">
+                        <p:inputText placeholder="APELLIDO" value="#{asistenteC.asistente.apellido}" >
                             <p:keyFilter regEx="/[ABCDEFGHIJKLMN ÑOPQRSTUVWXYZ]/i"/>
                         </p:inputText>
-                        <p:inputText placeholder="CELULAR" value="#{asistenteC.asistente.celular}" maxlength="9" requiredMessage="INGRESAR NUMERO DE CELULAR" required="true">
+                        <p:inputText placeholder="CELULAR" value="#{asistenteC.asistente.celular}" maxlength="9" >
                             <p:keyFilter regEx="/[\d\-]/"/>
                         </p:inputText>
 
