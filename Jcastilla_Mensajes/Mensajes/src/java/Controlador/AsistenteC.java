@@ -48,9 +48,9 @@ public class AsistenteC implements Serializable {
         try {
             DAO = new AsistenteD();
             DAO.registrar(asistente);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("AGREGADO", "Con Exito"));
             Limpiar();
             Listar();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("AGREGADO"));
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ERROR"));
             throw e;

@@ -13,7 +13,6 @@
 
 
         <ui:define name="content">
-            <p:growl autoUpdate="true" />
             <h:form id="frm">
 
                 <p:commandButton value="Nuevo" oncomplete="PF('dlgHola').show();" actionListener="#{asistenteC.setAccion('Registrar')}" update=":dlgDatos :newform"/>
@@ -52,18 +51,22 @@
 
             <p:dialog showEffect="explode" modal="true" hideEffect="explode" header="Datos" widgetVar="dlgHola" id="dlgDatos">
                 <h:form id="newform">
-                    <p:panelGrid columns="1">
-                        <p:inputText placeholder="NOMBRE" value="#{asistenteC.asistente.nombre}" requiredMessage="INGRESE EL NOMBRE" required="true" >
-                            <p:keyFilter regEx="/[ABCDEFGHIJKLMN ÑOPQRSTUVWXYZ]/i"/>
-                        </p:inputText>
-                        <p:inputText placeholder="APELLIDO" value="#{asistenteC.asistente.apellido}" requiredMessage="INGRESE EL APELLIDO" required="true">
-                            <p:keyFilter regEx="/[ABCDEFGHIJKLMN ÑOPQRSTUVWXYZ]/i"/>
-                        </p:inputText>
-                        <p:inputText placeholder="CELULAR" value="#{asistenteC.asistente.celular}" maxlength="9" requiredMessage="INGRESE EL NUMERO DE APELLIDO" required="true" >
+                    <p:panelGrid id="grid" columns="1">
+                        <p:outputLabel for="txtNombre" value="NOMBRE"/>
+                        <p:inputText id="txtNombre" placeholder="NOMBRE" value="#{asistenteC.asistente.nombre}" requiredMessage="INGRESE EL NOMBRE" required="true"/>
+                        <p:message for="txtNombre" />     
+
+                        <p:outputLabel for="txtApellido" value="APELLIDO"/>
+                        <p:inputText id="txtApellido" placeholder="APELLIDO" value="#{asistenteC.asistente.apellido}" requiredMessage="INGRESE EL APELLIDO" required="true"/>
+                        <p:message for="txtApellido"/>
+
+                        <p:outputLabel for="txtCelular" value="CELULAR"/>
+                        <p:inputText id="txtCelular" placeholder="CELULAR" value="#{asistenteC.asistente.celular}" maxlength="9" requiredMessage="INGRESE EL NUMERO DE CELULAR" required="true">
                             <p:keyFilter regEx="/[\d\-]/"/>
+                            <p:message for="txtCelular"/>
                         </p:inputText>
 
-                        <p:commandButton  value="#{asistenteC.accion}" actionListener="#{asistenteC.operar()}" oncomplete="handleSubmit(args,'dlgHola');"/>
+                        <p:commandButton  value="#{asistenteC.accion}" actionListener="#{asistenteC.operar()}" oncomplete="handleSubmit(args,'dlgHola');" update="grid"/>
                         <p:commandButton value="CANCELAR" immediate="true"  oncomplete="PF('dlgHola').hide();"/>
                     </p:panelGrid>
                 </h:form>

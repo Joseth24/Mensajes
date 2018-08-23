@@ -14,10 +14,9 @@
         <ui:define name="content">
 
             <h:form id="frm">
-
-                <!--                <p:messages id="messages" showDetail="true" closable="true">
-                                    <p:autoUpdate/>
-                                </p:messages>-->
+                <p:messages id="messages" showDetail="true" autoUpdate="true">
+                    <p:autoUpdate/>
+                </p:messages>
                 <p:commandButton value="Nuevo" oncomplete="PF('dlgDemo').show();" actionListener="#{asistenteC.setAccion('Registrar')}" update=":dlgDatos :newform"/>
                 <p:dataTable id="data" value="#{asistenteC.lstAsistente}" var="asistente" rows="10" paginator="true" 
                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {Exporters}"
@@ -56,13 +55,13 @@
             <p:dialog showEffect="explode" modal="true" hideEffect="explode" header="Datos" widgetVar="dlgDemo" id="dlgDatos">
                 <h:form id="newform">
                     <p:panelGrid columns="1">
-                        <p:inputText placeholder="NOMBRE" value="#{asistenteC.asistente.nombre}" >
+                        <p:inputText placeholder="NOMBRE" value="#{asistenteC.asistente.nombre}" requiredMessage="INGRESE EL APELLIDO" required="true">
                             <p:keyFilter regEx="/[ABCDEFGHIJKLMN ÑOPQRSTUVWXYZ]/i"/>
                         </p:inputText>
-                        <p:inputText placeholder="APELLIDO" value="#{asistenteC.asistente.apellido}" >
+                        <p:inputText placeholder="APELLIDO" value="#{asistenteC.asistente.apellido}" requiredMessage="INGRESE EL APELLIDO" required="true">
                             <p:keyFilter regEx="/[ABCDEFGHIJKLMN ÑOPQRSTUVWXYZ]/i"/>
                         </p:inputText>
-                        <p:inputText placeholder="CELULAR" value="#{asistenteC.asistente.celular}" maxlength="9" >
+                        <p:inputText placeholder="CELULAR" value="#{asistenteC.asistente.celular}" maxlength="9" requiredMessage="INGRESE EL NUMERO DE CELULAR" required="true"> 
                             <p:keyFilter regEx="/[\d\-]/"/>
                         </p:inputText>
 
